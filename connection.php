@@ -1,5 +1,15 @@
 <?php
-$conn = new mysqli("localhost","root","","round26blog");
-$conn->set_charset("utf8");
+
+$con = new mysqli("localhost","root","","round26");
 
 ?>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+</body>
+</html>
