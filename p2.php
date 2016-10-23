@@ -1,23 +1,29 @@
-<?php
-if(isset($_POST['name'])){
-	if($_POST['name'] == "user"){
-$conn = new mysqli("localhost","root","","round26blog");
-$conn->set_charset("utf8");
-$a = $_POST['uem'];
-$sel = "select useremail from user where useremail=?";
-$stmt = $conn->stmt_init();
-$stmt->prepare($sel);
-$stmt->bind_param('s',$a);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($b);
-if($stmt->num_rows > 0){
-	echo "User email is already taken !";
-	}
-	else{echo "New user email !";}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../src/css/bootstrap.css" rel="stylesheet">
+</head>
 
-	}
-}
+<body>
+<section class="container">
+<input type="button" id="bt" value="Create me">
+<div class="fut">Already exists.</div>
+</section>
+<script src="../src/js/jquery-1.11.3.min.js"></script>
+<script src="../src/js/bootstrap.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#bt").click(function(e) {
+        $("section").append("<div class='fut'>New div.</div>");
+    });
+	$("section").on("click","div",function(){
+		$(this).css({'color':'red','background-color':'#090'}).html("You clicked me");
+		});
+});
 
-
-?>
+</script>
+</body>
+</html>

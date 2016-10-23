@@ -4,68 +4,75 @@
 <meta charset="utf-8">
 <title>Untitled Document</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../src/css/bootstrap.min.css" rel="stylesheet">
+<link href="../src/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+ul { background-color:#DCDCDC; list-style:none; margin:0pt;
+padding:0pt; width:350px;}
+li { padding:10px; }
+</style>
 </head>
 
 <body>
 <div class="container">
-<div class="row">
-<div class="col-md-12 bg-success">
-<form role="for">
-<div class="form-group">
-<label for="uname">Username</label>
-<input type="text" name="uname" id="uname" class="form-control">
-<p class="alert alert-dismissable" id="mes"></p>
-</div>
-<div class="form-group">
-<label for="upass">Password</label>
-<input type="password" name="upass" id="upass" class="form-control">
-</div>
-<button type="button" class="btn btn-success" id="loginbutton">Login</button>
-</form><br>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 bg-success">
-<button type="button" class="btn btn-warning" id="userinfo">User info</button>
-<div class="jumbotron" id="content">
+<ul>
+<li>
+<input type="checkbox" id="handle">
+<label for="handle">
+<strong>Toggle All Checkbox</strong></label>
+</li>
+<li>
+<input type="checkbox" class="toggle"/>
+<label>A Study in Scarlet</label>
+</li>
+<li>
+<input type="checkbox" class="toggle"/>
+<label>The Sign of the Four</label>
+</li>
+<li>
+<input type="checkbox" class="toggle"/>
+<label>The Adventures of Sherlock Holmes</label>
+</li>
+<li>
+<input type="checkbox" class="toggle"/>
+<label>The Valley of Fear</label>
+</li>
+<li>
+<input type="checkbox" class="toggle"/>
+<label>His Last Bow</label>
+</li>
+<li><input type="button" id="getValue"
+value="Get Selected Values"/></li>
+<li id="selected"></li>
+</ul>
 
 </div>
-</div>
-</div>
-</div>
-<script src="../src/js/jquery-1.12.0.min.js"></script>
-<script src="../src/js/bootstrap.min.js"></script>
+<script src="../src/js/jquery-1.11.3.min.js"></script>
+<script src="../src/js/bootstrap.js"></script>
 <script>
 $(document).ready(function(e) {
-    $("#uname").keyup(function(e) {
-        var uname = $("#uname").val().length;
-		if(uname > 3){
-			$.post("p5.php",{
-				name : "username",
-				uname : $("#uname").val(),
-				rand : Math.random()
-				},
-			function(data){
-				if(data != ''){
-					$("#mes").text(data);
-					}
-					else{
-						alert("Error");
-						}
-				});
+    $("#handle").click(function(){
+		$(".toggle").prop("checked",$("#handle").prop("checked"));
+		});
+		$(".toggle").click(function(e) {
+            if($(".toggle:checked").length == $(".toggle").length)
+			$("#handle").attr("checked","true");
+			if($(".toggle:checked").length < $(".toggle").length)
+			$("#handle").removeAttr("checked");
+        });
+		$("#getValue").click(function(){
+			var values = '';
+			if($(".toggle:checked").length)
+			{
+				$(".toggle:checked").each(function(index, element) {
+                    values += $(this).next('label').html() + ',';
+                });
+				$("#selected").html("Selected values are " + values);
 			}
-    });
-	$("#userinfo").click(function(){
-	$.post("p6.php",{
-		name : 'userinfo',
-		rand : Math.random()
-		},
-		function(data){
-			$("#content").html(data);
+				else
+				{$("#selected").html("Nothing selected !");}
 			});
-	});
 });
+
 </script>
 </body>
 </html>

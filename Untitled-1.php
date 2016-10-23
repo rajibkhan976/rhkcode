@@ -9,9 +9,19 @@
 
 <body>
 <div class="container">
-
+<div id="a">
+<ul>
+<li><a href="p2.php?record=1" class="pa">1</a></li>
+</ul>
+</div>
 </div>
 <script src="../src/js/jquery-1.12.0.js"></script>
 <script src="../src/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(e) {
+    var pa = $(".pa").html();
+	alert(pa);
+});
+</script>
 </body>
 </html>

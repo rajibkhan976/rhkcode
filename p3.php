@@ -2,32 +2,31 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Untitled Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../src/css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
 <div class="container">
-<div class="row">
-<div id="mydiv" class="col-md-3 bg-success text-danger" style="border:1px solid gray; height:100px; width:160px">IDB-BISEW</div>
+<div id="img" class="col-sm-4">
 
 </div>
-<br>
-<button id="show" class="btn btn-success">Show</button>
-<button id="hide" class="btn btn-danger">Hide</button>
 </div>
-
-<script src="../src/js/bootstrap.min.js"></script>
-<script src="../src/js/jquery-1.12.0.min.js"></script>
+<script src="../src/js/jquery-1.11.3.min.js"></script>
+<script src="../src/js/bootstrap.js"></script>
 <script>
 $(document).ready(function(e) {
-    $("#hide").click(function(){
-		$("#mydiv").hide(2000);
-	});
-	$("#show").click(function(e) {
-        $("#mydiv").show(2000);
-    });
+    var imag = ['World.jpg','Bing_Profile.jpg','Bing_Building.jpg','jony.jpg'];
+	$.each(imag,function(k,v){alert(k + " : " + v);});
+	var tag = '';
+	$.each(imag,function(ke,va){
+		tag += '<img src="'+va+'" class="img-responsive">';
+		});
+		$("#img").html(tag);
+		$("img").error(function(e) {
+            $(this).replaceWith('<img src="Rajib.jpg" alt="Could not found image">');
+        });
 });
 </script>
 </body>
