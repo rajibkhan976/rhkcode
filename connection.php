@@ -1,6 +1,8 @@
 <?php
 
-$con = new mysqli("localhost","root","","round26");
+
+$con = new mysqli('localhost','root','','round26');
+
 
 ?>
 <!doctype html>
@@ -11,5 +13,6 @@ $con = new mysqli("localhost","root","","round26");
 </head>
 
 <body>
+
 </body>
 </html>
