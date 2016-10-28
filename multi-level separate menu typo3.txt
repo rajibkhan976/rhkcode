@@ -1,0 +1,44 @@
+lib.navigation.main = COA
+lib.navigation.main{
+10 = HMENU
+10 {
+excludeUidList = 8,9,10,11
+      1 = TMENU
+      1 {
+          expAll = 1
+	  wrap = <ul class="nav-main">|</ul>
+    	NO = 1
+        NO {
+               wrapItemAndSub = <li><span>|</span></li>
+           }
+      }
+      2 = TMENU
+      2 {
+      expAll = 1
+      wrap = <div class="sub-nav"><div class="col">|</div></div>
+      NO = 1
+      NO {
+      allWrap = <h4>|</h4>
+      }
+      }
+      3 = TMENU
+      3 {
+      #expAll = 1
+      wrap = <ul>|</ul>
+      NO = 1
+      NO {
+      allWrap = <li>|</li>
+      }
+      }
+   }     
+  20 = HMENU
+  20.excludeUidList = 7,3,4,5
+  20.1 = TMENU
+  20.1 {
+  wrap = <ul class="nav-secondary">|</ul>
+  NO = 1
+         NO {
+                allWrap = <li><span>|</span></li>
+            }
+  }
+}
