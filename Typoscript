@@ -1,0 +1,241 @@
+# Typoscript for logo
+lib.misc.logo = TEXT
+lib.misc.logo.value = <a href="#"><img src="/odin/fileadmin/parallel/images/parrallels-logo.png"/></a>
+
+
+# Typoscript for odin menu
+lib.navigation.main = COA
+lib.navigation.main{
+10 = HMENU
+10.excludeUidList = 8,9,10,11
+10.1 = TMENU
+10.1 {
+wrap = <ul class="nav-main">|</ul>
+    NO = 1
+         NO {
+                allWrap = <li>|</li>
+            }
+  }
+  
+  20 = HMENU
+  20.excludeUidList = 7,3,4,5
+  20.1 = TMENU
+  20.1 {
+  wrap = <ul class="nav-secondary">|</ul>
+  NO = 1
+         NO {
+                allWrap = <li>|</li>
+            }
+  }
+}
+
+# Latest Version of Typoscript for menu
+
+lib.navigation.main = COA
+lib.navigation.main{
+10 = HMENU
+#10.excludeUidList = 8,9,10,11
+10 {
+excludeUidList = 8,9,10,11
+      1 = TMENU
+      1 {
+          expAll = 1
+	  wrap = <ul class="nav-main">|</ul>
+    	NO = 1
+        NO {
+               wrapItemAndSub = <li><span>|</span></li>
+           }
+      }
+      2 = TMENU
+      2 {
+      expAll = 1
+      wrap = <div class="sub-nav"><div class="col">|</div></div>
+      NO = 1
+      NO {
+      allWrap = <h4>|</h4>
+      }
+      }
+      3 = TMENU
+      3 {
+      #expAll = 1
+      wrap = <ul>|</ul>
+      NO = 1
+      NO {
+      allWrap = <li>|</li>
+      }
+      }
+   }     
+  20 = HMENU
+  20.excludeUidList = 7,3,4,5
+  20.1 = TMENU
+  20.1 {
+  wrap = <ul class="nav-secondary">|</ul>
+  NO = 1
+         NO {
+                allWrap = <li><span>|</span></li>
+            }
+  }
+}
+
+#Typoscript for Footer
+
+lib.navigation.footer = COA
+lib.navigation.footer{
+10 = HMENU
+10 {
+special = list
+special.value = 7,3,4,5,8,9.10,11
+wrap = <div class="footer-left">|</div>
+1 = TMENU
+1 {
+wrap = <ul class="nav-info">|</ul>
+NO = 1
+NO {
+allWrap = <div style="clear:both;"><li>|</li></div>
+}
+}
+}
+
+20 < .10
+20.wrap = <div class="footer-middle">|</div>
+
+30 < .10
+30.wrap = <div class="footer-right">|</div>
+
+40 = TEXT
+40 {
+wrap = <p style="clear:both;padding-left:20px;">&copy;&nbsp;2016&nbsp;2016 Ingram Micro Inc. All rights reserved. Odin and the Odin logo are trademarks of Ingram Micro Inc.    Terms of Use &#124; Privacy Policy&nbsp;<p>
+}
+}
+
+#Typoscript for searchbox
+
+lib.misc.search = COA
+lib.misc.search{
+10 = TEXT
+  10.typolink.parameter = {$plugin.tx_indexedsearch.searchUID}
+  10.typolink.returnLast = url
+  10.wrap = <!-- searchbox begin --><div class="search-quick"><form class="d search" name="search" id="search" action="|" method="post"><input class="sl" type="text" size="15" name="tx_indexedsearch[sword]" id="searchQuery" value="" placeholder="Search Me"/><input class="hidden" type="hidden" name="tx_indexedsearch[_sections]" value="0" /><input type="hidden" name="tx_indexedsearch[pointer]" value="0" /><input type="hidden" name="tx_indexedsearch[ext]" value="0" /><input type="hidden" name="tx_indexedsearch[lang]" value="0" /><button  name="tx_indexedsearch[submit_button]" type="submit" value="search" style="background-color:red;">Go</button></form></div><!-- searchbox end --> 
+  20 = USER
+  20.userFunc = user_functionname
+  20.userFunc < plugin.name
+  20.userFunc.cssId = searchQuery
+}
+
+#Typoscript for Breadcrumb
+
+lib.navigation.breadcrumb = COA
+lib.navigation.breadcrumb{
+10 = HMENU
+10 {
+special = rootline
+special.range = 0|-1
+includeNotInMenu = 1
+1 = TMENU
+1 {
+noBlur = 1
+target = _self
+wrap = <div class="bcrumbs"><ul>|</ul></div>
+NO {
+stdWrap.field = title
+ATagTitle.field = nav_title // title
+linkWrap = <li>|</li><li>&gt;</li>|*|<li>|</li><li>&gt;</li>|*|<li>|</li> 
+}
+CUR = 1
+CUR < .NO
+}
+}
+}
+
+#Typoscript for Sidebar Navigation
+
+lib.navigation.left = COA
+lib.navigation.left{
+10 = HMENU
+10 {
+1 = TMENU
+1 {
+expAll = 1
+wrap = <div class="s-nav">|</div>
+NO = 1
+NO {
+allWrap = <div class="s-nav-title cur"><h2>|</h2></div>
+}
+}
+2 = TMENU
+2 {
+expAll = 1
+wrap = <div class="s-nav-body">|</div>
+NO = 1
+NO {
+wrapItemAndSub = <dl class="s-nav-list">|</dl>
+}
+}
+3 = TMENU
+3 {
+wrap = <ul>|</ul>
+NO = 1
+NO {
+allWrap = <li>|</li>
+}
+}
+}
+}
+
+# Typoscript for Sidebar Content
+	
+lib.navigation.leftcontent = COA
+lib.navigation.leftcontent{
+wrap = <div class="list"><dl class="list-section">|</dl></div>
+10 = TEXT
+10 {
+value = Success Stories for Parallels Automation
+stdWrap.wrap = <dt class="list-head">|</dt>
+}
+20 = TEXT
+20 {
+wrap = <dd class="list-body"><ul class="list">|</ul></dd>
+value = Sizable decrease in its operating expenses and a revenue increase through new service delivery.
+stdWrap.wrap = <li><p>|</p></li>
+}
+30 = TEXT
+30 {
+value = Cobweb
+stdWrap.wrap = <li><h3>|</h3></li>
+}
+40 = TEXT
+40 {
+value = 70% increase in services per customer, decreased their support incident volume by 30%.
+stdWrap.wrap = <li><p>|</p></li>
+}
+}
+lib.navigation.top = COA
+lib.navigation.top{
+10 = HMENU
+10 {
+special = list
+special.value = 26,27,28,29
+1 = TMENU
+1 {
+wrap = <ul class="nav-info">|</ul>
+NO = 1
+NO {
+allWrap = <li>|</li>
+}
+}
+}
+}
+
+# Typoscript for Language
+
+lib.navigation.language = COA
+lib.navigation.language{
+10 = TEXT
+10 {
+value = English / USA
+stdWrap.wrap = <h3><a href="#"><span class="ico i-map"></span>|</a></h3>
+}
+}
+
+
+
