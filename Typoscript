@@ -102,10 +102,44 @@ allWrap = <div style="clear:both;"><li>|</li></div>
 30 < .10
 30.wrap = <div class="footer-right">|</div>
 
-40 = TEXT
-40 {
-wrap = <p style="clear:both;padding-left:20px;">&copy;&nbsp;2016&nbsp;2016 Ingram Micro Inc. All rights reserved. Odin and the Odin logo are trademarks of Ingram Micro Inc.    Terms of Use &#124; Privacy Policy&nbsp;<p>
+40 < .10
+40.wrap = <div class="footer-four">|</div>
+
+80 = TEXT
+80 {
+wrap = <p style="clear:both;padding-left:20px;">&copy;&nbsp;2016&nbsp; Ingram Micro Inc. All rights reserved. Odin and the Odin logo are trademarks of Ingram Micro Inc.    Terms of Use &#124; Privacy Policy&nbsp;<p>
 }
+
+50 = TEXT
+50 { 
+wrap = <span style="margin-left:20px;height:10px;width:35px;margin-bottom:30px;display:inline-block;">|</span>
+typolink{
+parameter = http://www.facebook.com/
+extTarget = _blank
+}
+stdWrap.innerWrap = <img src="/odin/fileadmin/parallel/images/icon_facebook-black-24x24.png">
+}
+
+60 = TEXT
+60 { 
+wrap = <span style="height:10px;margin-bottom:30px;display:inline-block;">|</span>
+typolink{
+parameter = http://www.twitter.com/
+extTarget = _blank
+}
+stdWrap.innerWrap = <img src="/odin/fileadmin/parallel/images/icon_twitter-black-24x24.png">
+}
+
+70 = TEXT
+70 { 
+wrap = <span style="margin-left:12px;height:10px;margin-bottom:30px;display:inline-block;">|</span>
+typolink{
+parameter = http://www.linkedin.com/
+extTarget = _blank
+}
+stdWrap.innerWrap = <img src="/odin/fileadmin/parallel/images/icon_linkedin-black-24x24.png">
+}
+
 }
 
 #Typoscript for searchbox
