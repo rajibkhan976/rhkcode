@@ -1,7 +1,7 @@
 <?php
 function exclude_tag_cloud_widget($args) {
 
-$tags_array = get_tags( $args['get'] = 'all' );
+$tags_array = get_tags();
 		foreach($tags_array as $tag){
 			if($tag->count == 1){
 				$tag_id[] = $tag->term_id;			
